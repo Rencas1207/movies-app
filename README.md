@@ -1,18 +1,18 @@
-# Getting Started with Create React App
+# Movies App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Packages installed
 
-In the project directory, you can run:
+- react-router-dom
+- query-string
+- sass
+- axios
+- swiper@6.8.4
 
-### `npm start`
+Ejecutando: `npm i react-router-dom axios query-string sass swiper@6.8.4 --save`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Generamos un api key en el sitio web de The Movies API y nos vamos a la [documentacion](https://developers.themoviedb.org/3/getting-started/images) para acceder a las imagenes en el archivo de apiConfig.js.
 
 ### `npm test`
 
