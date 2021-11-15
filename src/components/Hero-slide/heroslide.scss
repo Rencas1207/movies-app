@@ -2,11 +2,17 @@
 
 .hero-slide {
   margin-bottom: 3rem;
+  width: 100%;
+  border: 1px solid red;
+  @include tablet {
+    min-height: auto;
+  }
 }
 
 .hero-slide__item {
-  padding: 9rem 0;
-  width: 100%;
+  padding: 3rem 0;
+  border: 1px solid rgb(30, 12, 190);
+  min-height: 100vh;
   position: relative;
   background-position: center;
   background-size: cover;
@@ -19,6 +25,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    height: 100%;
     @include overlay();
   }
 
@@ -28,17 +35,18 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 200px;
     background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
   }
 
   &__content {
-    @include flex(center, center);
-    position: relative;
+    @include flex(center, space-between);
+    // position: relative;
+    min-height: 100vh;
+    padding: 0 2rem;
 
     &__info {
-      width: 55%;
-      padding: 0 3rem;
+      width: 58%;
       position: relative;
 
       @include tablet {
@@ -46,16 +54,16 @@
       }
 
       & > * ~ * {
-        margin-top: 3rem;
+        margin-top: 2rem;
       }
 
       .title {
-        font-size: 5rem;
+        font-size: 4rem;
         font-weight: 700;
         line-height: 1;
 
         @include tablet {
-          font-size: 4rem;
+          font-size: 3rem;
         }
       }
 
@@ -76,11 +84,11 @@
       }
     }
     &__poster {
-      flex: 1;
-      @include flex(center, flex-start);
+      // flex: 1;
+      @include flex(center, center);
       position: relative;
       img {
-        width: 400px;
+        width: 350px;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
 

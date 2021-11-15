@@ -1,7 +1,7 @@
 @use '../../scss/' as *;
 
 .logo {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 600;
 
   @include flex(center, unset);
@@ -44,7 +44,7 @@
       padding: 5px 0;
       font-weight: 700;
       position: relative;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
 
       &::after {
         content: '';
