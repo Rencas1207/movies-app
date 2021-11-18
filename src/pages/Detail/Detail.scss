@@ -1,7 +1,17 @@
 @use '../../scss/' as *;
 
+.details {
+  .loading {
+    border: 1px solid blue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
 .banner {
   height: 50vh;
+  // border: 1px solid red;
   position: relative;
   background-position: center;
   background-size: cover;
@@ -91,6 +101,7 @@
 
 .casts {
   display: grid;
+  margin-top: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   gap: 10px;
 

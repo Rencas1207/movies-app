@@ -6,15 +6,15 @@ export const category = {
 };
 
 export const movieType = {
-  upcoming: 'upcoming',
-  popular: 'popular',
-  top_rated: 'top_rated',
+  upcoming: 'upcoming', // Proximo: https://api.themoviedb.org/3/movie/upcoming?api_key=22f04d437e4ae626e8b3b7fd11c90e41
+  popular: 'popular', // Popular: https://api.themoviedb.org/3/movie/popular?api_key=22f04d437e4ae626e8b3b7fd11c90e41
+  top_rated: 'top_rated', // Más valorados: https://api.themoviedb.org/3/movie/top_rated?api_key=22f04d437e4ae626e8b3b7fd11c90e41
 };
 
 export const tvType = {
-  popular: 'popular',
-  top_rated: 'top_rated',
-  on_the_air: 'on_the_air',
+  popular: 'popular', // Proximo: https://api.themoviedb.org/3/tv/popular?api_key=22f04d437e4ae626e8b3b7fd11c90e41
+  top_rated: 'top_rated', // Popular: https://api.themoviedb.org/3/tv/top_rated?api_key=22f04d437e4ae626e8b3b7fd11c90e41
+  on_the_air: 'on_the_air', // En el aire: https://api.themoviedb.org/3/tv/on_the_air?api_key=22f04d437e4ae626e8b3b7fd11c90e41
 };
 
 const tmdbApi = {

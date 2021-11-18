@@ -11,28 +11,31 @@ import { useHistory } from 'react-router-dom';
 
 import Button, { OutlineButton } from '../Button/Button';
 import Modal, { ModalContent } from '../Modal/Modal';
+import { Loading } from '../Loading/Loading';
 
 export const HeroSlide = () => {
   SwiperCore.use([Autoplay]);
 
   const [movieItems, setMovieItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const getMovies = async () => {
       const params = { page: 1 };
       try {
         const response = await tmdbApi.getMoviesList(movieType.popular, {
           params,
         });
-        setMovieItems(response.results.slice(0, 4));
-        console.log(response);
+        setMovieItems(response.results.slice(0, 8));
+        setLoading(false);
       } catch {
         console.log('error');
       }
     };
     getMovies();
   }, []);
-  console.log(movieItems);
+
   return (
     <div className="hero-slide">
       <Swiper
@@ -40,19 +43,27 @@ export const HeroSlide = () => {
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 8000 }}
       >
-        {movieItems.map((item, i) => (
-          <SwiperSlide key={i}>
-            {({ isActive }) => (
-              <HeroSlideItem
-                item={item}
-                className={`${isActive ? 'active' : ''}`}
-              />
-            )}
-          </SwiperSlide>
-        ))}
+        {loading && (
+          <div className="loading">
+            <Loading />
+          </div>
+        )}
+        {!loading &&
+          movieItems.map((item, i) => (
+            <SwiperSlide key={i}>
+              {({ isActive }) => (
+                <HeroSlideItem
+                  item={item}
+                  className={`${isActive ? 'active' : ''}`}
+                  // loading={loading}
+                />
+              )}
+            </SwiperSlide>
+          ))}
       </Swiper>
+
       {movieItems.map((item, i) => (
         <TrailerModal key={i} item={item} />
       ))}
@@ -60,14 +71,14 @@ export const HeroSlide = () => {
   );
 };
 
-const HeroSlideItem = (props) => {
+const HeroSlideItem = ({ item, className }) => {
   let history = useHistory();
-
-  const item = props.item;
 
   const background = apiConfig.originalImage(
     item.backdrop_path ? item.backdrop_path : item.poster_path
   );
+
+  // console.log(loading);
 
   const setModalActive = async () => {
     const modal = document.querySelector(`#modal_${item.id}`);
@@ -88,7 +99,7 @@ const HeroSlideItem = (props) => {
 
   return (
     <div
-      className={`hero-slide__item ${props.className}`}
+      className={`hero-slide__item ${className}`}
       style={{ backgroundImage: `url(${background})` }}
     >
       <div className="hero-slide__item__content container">
@@ -112,9 +123,7 @@ const HeroSlideItem = (props) => {
   );
 };
 
-const TrailerModal = (props) => {
-  const item = props.item;
-
+const TrailerModal = ({ item }) => {
   const iframeRef = useRef(null);
 
   const onClose = () => iframeRef.current.setAttribute('src', '');

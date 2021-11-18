@@ -3,18 +3,18 @@ import { useParams } from 'react-router-dom';
 import apiConfig from '../../api/apiConfig';
 import tmdbApi from '../../api/tmdbApi';
 
-export const CastList = (props) => {
+export const CastList = ({ id }) => {
   const { category } = useParams();
 
   const [casts, setCasts] = useState([]);
 
   useEffect(() => {
     const getCredits = async () => {
-      const res = await tmdbApi.credits(category, props.id);
+      const res = await tmdbApi.credits(category, id);
       setCasts(res.cast.slice(0, 8));
     };
     getCredits();
-  }, [category, props.id]);
+  }, [category, id]);
 
   return (
     <div className="casts">

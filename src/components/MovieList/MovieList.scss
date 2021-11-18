@@ -1,8 +1,25 @@
 @use '../../scss/breakpoint' as *;
 
 .movie-list {
+  .swiper-container {
+    .loading {
+      width: 100%;
+      display: inline-flex;
+      height: 40vh;
+      // border: 1px solid red;
+
+      @include tablet {
+        height: 30vh;
+      }
+
+      @include mobile {
+        height: 20vh;
+      }
+    }
+  }
+
   .swiper-slide {
-    width: 15%;
+    width: 18%;
 
     @include tablet {
       width: 30%;

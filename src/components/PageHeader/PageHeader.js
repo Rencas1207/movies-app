@@ -5,10 +5,10 @@ import bg from '../../assets/footer-bg.jpg';
 
 import './PageHeader.scss';
 
-export const PageHeader = (props) => {
+export const PageHeader = ({ children }) => {
   return (
     <div className="page-header" style={{ backgroundImage: `url(${bg})` }}>
-      <h2>{props.children}</h2>
+      <h2>{children}</h2>
     </div>
   );
 };

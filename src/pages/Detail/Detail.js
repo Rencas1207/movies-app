@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import apiConfig from '../../api/apiConfig';
 import tmdbApi from '../../api/tmdbApi';
+import { Loading } from '../../components/Loading/Loading';
 import MovieList from '../../components/MovieList/MovieList';
 import { CastList } from './CastList';
 
@@ -13,18 +14,31 @@ const Detail = () => {
 
   const [item, setItem] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
     const getDetail = async () => {
+      // setTimeout(async () => {
       const response = await tmdbApi.detail(category, id, { params: {} });
       setItem(response);
       window.scrollTo(0, 0);
+      setLoading(false);
+      // }, [5000]);
     };
     getDetail();
   }, [category, id]);
 
+  console.log(item);
+
   return (
-    <>
-      {item && (
+    <div className="details">
+      {loading && (
+        <div className="loading">
+          <Loading />
+        </div>
+      )}
+      {!loading && item && (
         <>
           <div
             className="banner"
@@ -34,6 +48,7 @@ const Detail = () => {
               )})`,
             }}
           ></div>
+
           <div className="mb-3 movie-content container">
             <div className="movie-content__poster">
               <div
@@ -45,6 +60,7 @@ const Detail = () => {
                 }}
               ></div>
             </div>
+
             <div className="movie-content__info">
               <h1 className="title">{item.title || item.name}</h1>
               <div className="genres">
@@ -78,7 +94,7 @@ const Detail = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

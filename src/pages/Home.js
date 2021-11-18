@@ -10,7 +10,8 @@ const Home = () => {
     <>
       <HeroSlide />
       <div className="container">
-        <div className="section mb-3">
+        {/* Section Movie Popular */}
+        <section className="section mb-2">
           <div className="section__header mb-2">
             <h2>Trending Movies</h2>
             <Link to="/movie">
@@ -18,9 +19,10 @@ const Home = () => {
             </Link>
           </div>
           <MovieList category={category.movie} type={movieType.popular} />
-        </div>
+        </section>
 
-        <div className="section mb-3">
+        {/* Section Movie Top Rated */}
+        <section className="section mb-2">
           <div className="section__header mb-2">
             <h2>Top Rated Movies</h2>
             <Link to="/movie">
@@ -28,9 +30,10 @@ const Home = () => {
             </Link>
           </div>
           <MovieList category={category.movie} type={movieType.top_rated} />
-        </div>
+        </section>
 
-        <div className="section mb-3">
+        {/* Section Tv Popular */}
+        <section className="section mb-2">
           <div className="section__header mb-2">
             <h2>Trending TV</h2>
             <Link to="/tv">
@@ -38,9 +41,10 @@ const Home = () => {
             </Link>
           </div>
           <MovieList category={category.tv} type={tvType.popular} />
-        </div>
+        </section>
 
-        <div className="section mb-3">
+        {/* Section Tv Top Rated */}
+        <section className="section mb-3">
           <div className="section__header mb-2">
             <h2>Top Rated TV</h2>
             <Link to="/tv">
@@ -48,7 +52,7 @@ const Home = () => {
             </Link>
           </div>
           <MovieList category={category.tv} type={tvType.top_rated} />
-        </div>
+        </section>
       </div>
     </>
   );

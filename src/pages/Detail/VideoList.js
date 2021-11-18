@@ -2,18 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import tmdbApi from '../../api/tmdbApi';
 
-export const VideoList = (props) => {
+export const VideoList = ({ id }) => {
   const { category } = useParams();
 
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     const getVideos = async () => {
-      const res = await tmdbApi.getVideos(category, props.id);
+      const res = await tmdbApi.getVideos(category, id);
       setVideos(res.results.slice(0, 5));
     };
     getVideos();
-  }, [category, props.id]);
+  }, [category, id]);
 
   return (
     <>
@@ -24,9 +24,7 @@ export const VideoList = (props) => {
   );
 };
 
-const Video = (props) => {
-  const item = props.item;
-
+const Video = ({ item }) => {
   const iframeRef = useRef(null);
 
   useEffect(() => {

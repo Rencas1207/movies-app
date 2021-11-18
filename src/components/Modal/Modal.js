@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 import './Modal.scss';
 
-const Modal = (props) => {
-  const [active, setActive] = useState(false);
+const Modal = ({ active, id, children }) => {
+  const [activeModal, setActiveModal] = useState(false);
 
   useEffect(() => {
-    setActive(props.active);
-  }, [props.active]);
+    setActiveModal(active);
+  }, [active]);
 
   return (
-    <div id={props.id} className={`modal ${active ? 'active' : ''}`}>
-      {props.children}
+    <div id={id} className={`modal ${activeModal ? 'active' : ''}`}>
+      {children}
     </div>
   );
 };
@@ -22,17 +22,17 @@ Modal.propTypes = {
   id: PropTypes.string,
 };
 
-export const ModalContent = (props) => {
+export const ModalContent = ({ onClose, children }) => {
   const contentRef = useRef(null);
 
   const closeModal = () => {
     contentRef.current.parentNode.classList.remove('active');
-    if (props.onClose) props.onClose();
+    if (onClose) onClose();
   };
 
   return (
     <div ref={contentRef} className="modal__content">
-      {props.children}
+      {children}
       <div className="modal__content__close" onClick={closeModal}>
         <i className="bx bx-x"></i>
       </div>

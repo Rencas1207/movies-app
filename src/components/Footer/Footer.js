@@ -28,7 +28,7 @@ export const Footer = () => {
             <Link to="/">Live</Link>
             <Link to="/">FAQ</Link>
             <Link to="/">Premium</Link>
-            <Link to="/">Pravacy policy</Link>
+            <Link to="/">Privacy policy</Link>
           </div>
 
           <div className="footer__content__menu">

@@ -22,17 +22,16 @@ const headerNav = [
 
 export const Header = () => {
   const { pathname } = useLocation();
-  // console.log(pathname);
+
   const headerRef = useRef(null);
 
   const active = headerNav.findIndex((e) => e.path === pathname);
-  // console.log(active);
 
   useEffect(() => {
     const shrinkHeader = () => {
       if (
-        document.body.scrollTop > 100 ||
-        document.documentElement.scrollTop > 100
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
       ) {
         headerRef.current.classList.add('shrink');
       } else {

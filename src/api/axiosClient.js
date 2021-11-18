@@ -26,4 +26,6 @@ axiosClient.interceptors.response.use(
   }
 );
 
+// console.log(axiosClient);
+
 export default axiosClient;

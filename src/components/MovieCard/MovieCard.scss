@@ -2,11 +2,15 @@
 
 .movie-card {
   position: relative;
-  background-position: top;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 160%;
-  border-radius: $border-radius;
+  background-color: #ff0000;
+  // width: 14rem;
+  // height: 20rem;
+  padding-top: 150%;
+  // padding-right: 5rem;
+  border-radius: $border-radius-min;
   margin-bottom: 1rem;
 
   .btn {
@@ -15,6 +19,9 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .bx-play {
+      font-size: 2rem;
+    }
   }
 
   &::before {
@@ -27,7 +34,7 @@
     background-color: $black;
     opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: $border-radius;
+    border-radius: $border-radius-min;
   }
 
   @media (hover: hover) and (pointer: fine) {

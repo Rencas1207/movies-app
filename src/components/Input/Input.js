@@ -2,13 +2,13 @@ import React from 'react';
 
 import './Input.scss';
 
-export const Input = (props) => {
+export const Input = ({ type, placeholder, value, onChange }) => {
   return (
     <input
-      type={props.type}
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={props.onChange ? (e) => props.onChange(e) : null}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange ? (e) => onChange(e) : null}
     />
   );
 };

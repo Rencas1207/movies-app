@@ -2,21 +2,38 @@
 
 .hero-slide {
   margin-bottom: 3rem;
-  width: 100%;
-  border: 1px solid red;
-  @include tablet {
-    min-height: auto;
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid red;
+    min-height: 100vh;
+    @include tablet {
+      min-height: 70vh;
+    }
+
+    @include mobile {
+      min-height: 50vh;
+    }
   }
 }
 
 .hero-slide__item {
+  width: 100%;
   padding: 3rem 0;
-  border: 1px solid rgb(30, 12, 190);
   min-height: 100vh;
   position: relative;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @include tablet {
+    min-height: 70vh;
+  }
+
+  @include mobile {
+    min-height: 50vh;
+  }
 
   &::before {
     content: '';
@@ -24,7 +41,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     height: 100%;
     @include overlay();
   }
@@ -35,15 +51,19 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
   }
 
   &__content {
     @include flex(center, space-between);
-    // position: relative;
-    min-height: 100vh;
-    padding: 0 2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    // border: 4px solid blue;
+    // min-height: 100vh;
+    padding: 3rem 2rem 0;
 
     &__info {
       width: 58%;
@@ -85,10 +105,11 @@
     }
     &__poster {
       // flex: 1;
+      // border: 1px solid red;
       @include flex(center, center);
       position: relative;
       img {
-        width: 350px;
+        width: 300px;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
 
