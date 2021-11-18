@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import bg from '../../assets/footer-bg.jpg';
-import logo from '../../assets/tmovie.png';
+import logo from '../../assets/logo-movies.png';
 
 import './Footer.scss';
 
@@ -12,7 +12,7 @@ export const Footer = () => {
       <div className="footer__content container">
         <div className="footer__content__logo">
           <div className="logo">
-            <img src={logo} alt="" />
+            <img src={logo} alt="logo" />
             <Link to="/">tMovies</Link>
           </div>
         </div>

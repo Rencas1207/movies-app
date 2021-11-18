@@ -40,6 +40,7 @@ const MovieList = ({ type, category, id }) => {
       // }, [10000]);
     };
     getList();
+    return () => setItems('');
   }, [category, type, id]);
   // console.log(items);
   return (

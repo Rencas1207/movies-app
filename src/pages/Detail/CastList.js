@@ -23,7 +23,7 @@ export const CastList = ({ id }) => {
 
   return (
     <div className="casts">
-      {loading && [0, 1, 2, 3, 4, 5].map((n) => <Loading key={n} />)}
+      {loading && [0, 1, 2, 3].map((n) => <Loading key={n} />)}
       {!loading &&
         casts.map((item, i) => (
           <div key={i} className="casts__item">

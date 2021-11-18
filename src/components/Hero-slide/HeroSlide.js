@@ -43,7 +43,7 @@ export const HeroSlide = () => {
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 8000 }}
+        autoplay={{ delay: 10000 }}
       >
         {loading && (
           <div className="loading">
@@ -77,8 +77,6 @@ const HeroSlideItem = ({ item, className }) => {
   const background = apiConfig.originalImage(
     item.backdrop_path ? item.backdrop_path : item.poster_path
   );
-
-  // console.log(loading);
 
   const setModalActive = async () => {
     const modal = document.querySelector(`#modal_${item.id}`);

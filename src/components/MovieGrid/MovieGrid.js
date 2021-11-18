@@ -12,7 +12,7 @@ import MovieCard from '../MovieCard/MovieCard';
 
 import './MovieGrid.scss';
 
-export const MovieGrid = ({ category }) => {
+export const MovieGrid = ({ category, padre }) => {
   const [items, setItems] = useState([]);
 
   const [page, setPage] = useState(1);
@@ -90,10 +90,16 @@ export const MovieGrid = ({ category }) => {
   };
 
   return (
-    <>
+    <div>
       <div className="section mb-3">
         <MovieSearch category={category} keyword={keyword} />
       </div>
+      {!loading && items.length === 0 && (
+        <p className="without-results">
+          Without results for {`${keyword}`} ☹️🎥...{' '}
+        </p>
+      )}
+
       <div className="movie-grid">
         {loading &&
           [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((n) => (
@@ -113,7 +119,7 @@ export const MovieGrid = ({ category }) => {
           </OutlineButton>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 

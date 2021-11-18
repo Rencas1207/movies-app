@@ -7,18 +7,22 @@ import { Header } from './components/Header/Header';
 import { Routes } from './config/Routes';
 import { Footer } from './components/Footer/Footer';
 
+import { HelmetProvider } from 'react-helmet-async';
+
 function App() {
+  // const
+
   return (
     <BrowserRouter>
       <Route
         render={(props) => (
-          <>
+          <HelmetProvider>
             <Header {...props} />
             <main>
               <Routes />
             </main>
             <Footer />
-          </>
+          </HelmetProvider>
         )}
       />
     </BrowserRouter>

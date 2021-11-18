@@ -1,12 +1,12 @@
 @use '../../scss/' as *;
 
-.details {
-  .loading {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+// .details {
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
+// }
 
 .banner {
   height: 50vh;

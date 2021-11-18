@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { category, movieType, tvType } from '../api/tmdbApi';
 import { OutlineButton } from '../components/Button/Button';
@@ -8,6 +9,9 @@ import MovieList from '../components/MovieList/MovieList';
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Movies App - Home</title>
+      </Helmet>
       <HeroSlide />
       <div className="container">
         {/* Section Movie Popular */}

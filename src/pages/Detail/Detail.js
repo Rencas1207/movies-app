@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import apiConfig from '../../api/apiConfig';
 import tmdbApi from '../../api/tmdbApi';
@@ -9,6 +10,8 @@ import { CastList } from './CastList';
 import './Detail.scss';
 import { VideoList } from './VideoList';
 
+import logo from '../../assets/logo-movies.png';
+
 const Detail = () => {
   const { category, id } = useParams();
 
@@ -16,8 +19,8 @@ const Detail = () => {
 
   const [loading, setLoading] = useState(false);
 
+  window.scrollTo(0, 0);
   useEffect(() => {
-    window.scrollTo(0, 0);
     setLoading(true);
     const getDetail = async () => {
       // setTimeout(async () => {
@@ -32,14 +35,24 @@ const Detail = () => {
   // console.log(item);
 
   return (
-    <div className="details">
+    <main>
       {loading && (
-        <div className="loading">
-          <Loading />
-        </div>
+        <>
+          <Helmet>
+            <link rel="icon" href={logo} />
+            <title>Cargando...</title>
+          </Helmet>
+          <div className="loading">
+            <Loading />
+          </div>
+        </>
       )}
       {!loading && item && (
         <>
+          <Helmet>
+            {/* <link rel="icon" href={logo} /> */}
+            <title>Movies App - {item.title || item.name}</title>
+          </Helmet>
           <div
             className="banner"
             style={{
@@ -94,7 +107,7 @@ const Detail = () => {
           </div>
         </>
       )}
-    </div>
+    </main>
   );
 };
 

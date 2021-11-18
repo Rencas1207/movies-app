@@ -7,13 +7,28 @@ import { PageHeader } from '../components/PageHeader/PageHeader';
 import { category as cate } from '../api/tmdbApi';
 import { MovieGrid } from '../components/MovieGrid/MovieGrid';
 
-const Catalog = () => {
-  const { category } = useParams();
+import { Helmet } from 'react-helmet-async';
 
-  // console.log(category);
+import logo from '../assets/logo-movies.png';
+
+const Catalog = () => {
+  const { category, keyword } = useParams();
 
   return (
     <>
+      <Helmet>
+        <link rel="icon" href={logo} />
+        <title>
+          Movies App -{' '}
+          {category === cate.movie
+            ? keyword === undefined
+              ? 'Search of Movies'
+              : `Results of ${keyword}`
+            : keyword === undefined
+            ? 'Search of TV Series'
+            : `Results of ${keyword}`}
+        </title>
+      </Helmet>
       <PageHeader>
         {category === cate.movie ? 'Movies' : 'TV Series'}
       </PageHeader>

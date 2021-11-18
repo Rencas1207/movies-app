@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import './header.scss';
-import logo from '../../assets/tmovie.png';
+import logo from '../../assets/logo-movies.png';
 
 const headerNav = [
   {
@@ -49,7 +49,7 @@ export const Header = () => {
     <header ref={headerRef} className="header">
       <div className="header__wrap container">
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src={logo} alt="logo" />
           <Link to="/">tMovies</Link>
         </div>
         <ul className="header__nav">

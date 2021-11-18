@@ -19,6 +19,7 @@ export const VideoList = ({ id }) => {
       }, 2000);
     };
     getVideos();
+    return () => setVideos('');
   }, [category, id]);
 
   return (
