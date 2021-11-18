@@ -14,7 +14,9 @@ function App() {
         render={(props) => (
           <>
             <Header {...props} />
-            <Routes />
+            <main>
+              <Routes />
+            </main>
             <Footer />
           </>
         )}

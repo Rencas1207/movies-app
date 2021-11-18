@@ -17,19 +17,19 @@ const Detail = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setLoading(true);
     const getDetail = async () => {
       // setTimeout(async () => {
       const response = await tmdbApi.detail(category, id, { params: {} });
       setItem(response);
-      window.scrollTo(0, 0);
       setLoading(false);
       // }, [5000]);
     };
     getDetail();
   }, [category, id]);
 
-  console.log(item);
+  // console.log(item);
 
   return (
     <div className="details">

@@ -8,7 +8,7 @@ import tmdbApi, {
 import Button, { OutlineButton } from '../Button/Button';
 import { Input } from '../Input/Input';
 import { Loading } from '../Loading/Loading';
-import { MovieCard } from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 
 import './MovieGrid.scss';
 
@@ -25,6 +25,7 @@ export const MovieGrid = ({ category }) => {
 
   useEffect(() => {
     setLoading(true);
+    window.scrollTo(0, 0);
     const getList = async () => {
       // setTimeout(async () => {
       let response = null;
@@ -48,6 +49,7 @@ export const MovieGrid = ({ category }) => {
         };
         response = await tmdbApi.search(category, { params });
       }
+
       setItems(response.results);
       setTotalPage(response.total_pages);
       setLoading(false);
@@ -83,8 +85,8 @@ export const MovieGrid = ({ category }) => {
       response = await tmdbApi.search(category, { params });
     }
     setItems([...items, ...response.results]);
+
     setPage(page + 1);
-    // setLoading(false);
   };
 
   return (
@@ -101,13 +103,7 @@ export const MovieGrid = ({ category }) => {
           ))}
         {!loading &&
           items.map((item, i) => (
-            <MovieCard
-              category={category}
-              item={item}
-              key={i}
-              // loading={loading}
-              // setLoading={setLoading}
-            />
+            <MovieCard category={category} item={item} key={i} />
           ))}
       </div>
       {page < totalPage ? (

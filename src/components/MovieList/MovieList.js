@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import tmdbApi, { category as CategoryApi } from '../../api/tmdbApi';
 
-import { MovieCard } from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import { Loading } from '../Loading/Loading';
 
 const MovieList = ({ type, category, id }) => {
@@ -16,6 +16,7 @@ const MovieList = ({ type, category, id }) => {
 
   useEffect(() => {
     setLoading(true);
+    window.scrollTo(0, 0);
     const getList = async () => {
       // setTimeout(async () => {
       let response = null;
@@ -33,6 +34,7 @@ const MovieList = ({ type, category, id }) => {
       } else {
         response = await tmdbApi.similar(category, id);
       }
+      // window.scrollTo(0, 0);
       setItems(response.results);
       setLoading(false);
       // }, [10000]);

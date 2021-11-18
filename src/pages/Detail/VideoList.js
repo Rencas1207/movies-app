@@ -1,25 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import tmdbApi from '../../api/tmdbApi';
+import { Loading } from '../../components/Loading/Loading';
 
 export const VideoList = ({ id }) => {
   const { category } = useParams();
 
   const [videos, setVideos] = useState([]);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
-    const getVideos = async () => {
-      const res = await tmdbApi.getVideos(category, id);
-      setVideos(res.results.slice(0, 5));
+    setloading(true);
+    const getVideos = () => {
+      setTimeout(async () => {
+        const res = await tmdbApi.getVideos(category, id);
+        setVideos(res.results.slice(0, 5));
+        setloading(false);
+      }, 2000);
     };
     getVideos();
   }, [category, id]);
 
   return (
     <>
-      {videos.map((item, i) => (
-        <Video key={i} item={item} />
-      ))}
+      {loading && <Loading />}
+      {!loading &&
+        videos.map((item, i) => (
+          <Video key={i} item={item} loading={loading} />
+        ))}
     </>
   );
 };

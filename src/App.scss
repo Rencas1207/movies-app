@@ -60,6 +60,10 @@ iframe {
   border: 0;
 }
 
+main {
+  min-height: 100vh;
+}
+
 .container {
   max-width: 1660px;
   margin: auto 1rem;
