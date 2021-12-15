@@ -9,7 +9,7 @@ import { MovieGrid } from '../components/MovieGrid/MovieGrid';
 
 import { Helmet } from 'react-helmet-async';
 
-import logo from '../assets/logo-movies.png';
+import logo from '../assets/LogoMovies.svg';
 
 const Catalog = () => {
   const { category, keyword } = useParams();
@@ -19,7 +19,7 @@ const Catalog = () => {
       <Helmet>
         <link rel="icon" href={logo} />
         <title>
-          Movies App -{' '}
+          Rencas Movies App -{' '}
           {category === cate.movie
             ? keyword === undefined
               ? 'Search of Movies'

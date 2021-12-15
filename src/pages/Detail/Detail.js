@@ -10,7 +10,7 @@ import { CastList } from './CastList';
 import './Detail.scss';
 import { VideoList } from './VideoList';
 
-import logo from '../../assets/logo-movies.png';
+import logo from '../../assets/LogoMovies.svg';
 
 const Detail = () => {
   const { category, id } = useParams();
@@ -51,7 +51,7 @@ const Detail = () => {
         <>
           <Helmet>
             {/* <link rel="icon" href={logo} /> */}
-            <title>Movies App - {item.title || item.name}</title>
+            <title>Rencas Movies App - {item.title || item.name}</title>
           </Helmet>
           <div
             className="banner"
